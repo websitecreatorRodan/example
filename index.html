@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4B0082, #FFD700);
+        }
+
+        .invitation-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            text-align: center;
+            padding: 40px 30px;
+            margin: 20px;
+        }
+
+        .invitation-card img {
+            border-radius: 10px;
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-bottom: 5px solid #FFD700;
+        }
+
+        .invitation-card h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #4B0082;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .invitation-card h2 {
+            font-size: 1.8em;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .invitation-card p {
+            font-size: 1.2em;
+            color: #4B0082;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #4B0082;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #320062;
+        }
+
+        .footer {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 30px;
+        }
+
+        .details-section {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .details-section h3 {
+            font-size: 1.5em;
+            color: #4B0082;
+            margin-bottom: 10px;
+        }
+
+        .details-section p {
+            font-size: 1.1em;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .photos-section {
+            margin-top: 20px;
+        }
+
+        .photos-section img {
+            border-radius: 10px;
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .events-section {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .events-section h3 {
+            font-size: 1.5em;
+            color: #4B0082;
+            margin-bottom: 10px;
+        }
+
+        .events-section p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .join-us-section {
+            background-color: #FFD700;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .join-us-section h3 {
+            font-size: 1.8em;
+            color: #4B0082;
+            margin-bottom: 10px;
+        }
+
+        .join-us-section p {
+            font-size: 1.2em;
+            color: #4B0082;
+        }
+
+        .emoji-container {
+            margin-top: 10px;
+        }
+
+        .emoji,
+        .inline-emoji {
+            font-size: 2em;
+            cursor: pointer;
+            transition: transform 0.5s, filter 0.5s;
+            display: inline-block;
+            position: relative;
+        }
+
+        .emoji.clicked,
+        .inline-emoji.clicked {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            30% {
+                transform: scale(1.5);
+                filter: brightness(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+        }
+
+        .rsvp-footer {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-emoji {
+            font-size: 2em;
+            position: absolute;
+            animation: float 2s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            to {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invitation-card">
+        <img src="https://via.placeholder.com/800x300" alt="Birthday Celebration Image">
+        <h1>Grand Birthday Celebration <span class="inline-emoji" onclick="animateEmoji(this)">🎉</span></h1>
+        <h2>Honoring John Doe's 5th Birthday <span class="inline-emoji" onclick="animateEmoji(this)">🎂</span></h2>
+        <p>We request the pleasure of your company for an afternoon of celebration and joy. <span class="inline-emoji" onclick="animateEmoji(this)">🌟</span></p>
+
+        <div class="details-section">
+            <h3>Event Details <span class="inline-emoji" onclick="animateEmoji(this)">📅</span></h3>
+            <p><span class="highlight">Date:</span> July 24, 2023</p>
+            <p><span class="highlight">Time:</span> 3:00 PM - 6:00 PM</p>
+            <p><span class="highlight">Location:</span> 123 Party Street, Grand Town</p>
+        </div>
+
+        <div class="photos-section">
+            <h3>Memorable Moments <span class="inline-emoji" onclick="animateEmoji(this)">📸</span></h3>
+            <img src="https://via.placeholder.com/800x200" alt="Photo 1">
+            <img src="https://via.placeholder.com/800x200" alt="Photo 2">
+        </div>
+
+        <div class="events-section">
+            <h3>Event Attractions <span class="inline-emoji" onclick="animateEmoji(this)">🎈</span></h3>
+            <p>Join us for exciting games, delicious food, and lots of fun activities designed for all ages. There will be a special gift registry available for those interested in bringing gifts to celebrate John's special day. <span class="inline-emoji" onclick="animateEmoji(this)">🎁</span></p>
+            <p><span class="highlight">Games:</span> Fun games for kids and adults</p>
+            <p><span class="highlight">Food:</span> A variety of snacks and meals</p>
+            <p><span class="highlight">Gifts:</span> Check out our gift registry link here.</p>
+        </div>
+
+        <div class="join-us-section">
+            <h3>Let's Get Into the Party! <span class="inline-emoji" onclick="animateEmoji(this)">🎉</span></h3>
+            <p>Come and join us for an unforgettable afternoon filled with laughter and fun. We are excited to have you celebrate this special day with us! <span class="inline-emoji" onclick="animateEmoji(this)">🎊</span></p>
+            <div class="emoji-container">
+                <span class="emoji" onclick="createFloatingEmoji('🎊')">🎊</span>
+                <span class="emoji" onclick="createFloatingEmoji('🍰')">🍰</span>
+                <span class="emoji" onclick="createFloatingEmoji('🎉')">🎉</span>
+            </div>
+        </div>
+
+        <div class="rsvp-footer">We can't wait to celebrate with you! <span class="inline-emoji" onclick="animateEmoji(this)">📅</span></div>
+    </div>
+
+    <div class="animation-container" id="animation-container"></div>
+
+    <script>
+        function animateEmoji(element) {
+            element.classList.add('clicked');
+            setTimeout(() => {
+                element.classList.remove('clicked');
+            }, 500);
+        }
+
+        function createFloatingEmoji(emoji) {
+            const container = document.getElementById('animation-container');
+            const floatingEmoji = document.createElement('span');
+            floatingEmoji.classList.add('floating-emoji');
+            floatingEmoji.innerText = emoji;
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            floatingEmoji.style.left = `${randomX}vw`;
+            floatingEmoji.style.top = `${randomY}vh`;
+            container.appendChild(floatingEmoji);
+            floatingEmoji.addEventListener('animationend', () => {
+                container.removeChild(floatingEmoji);
+            });
+        }
+    </script>
+</body>
+
+</html>
